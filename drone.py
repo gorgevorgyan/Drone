@@ -1,44 +1,37 @@
-# #Importing Modules
-# import socket, threading
-# drone_id ="1" 
-# server_host =socket.gethostname()
-# server_port = 9999
-# #socket initialization
-# drone = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# #connecting drone to server     
-# drone.connect((server_host, server_port))                             
-# def receive():
-#     while True:                                                 
-#         try:
-#             message = drone.recv(1024).decode('ascii')
-#             if message == 'Id':
-#                 drone.send(drone_id.encode('ascii'))
-#             else:
-#                 print(message)
-#         except:                                                 
-#             print("An error occured!")
-#             drone.close()
-#             break
-# def write():
-#     while True:                                               
-#         message = "ok"
-#         drone.send(message.encode('ascii'))
+import socketio
+import time
+sio = socketio.Client()
 
-# receive_thread = threading.Thread(target=receive)               
-# receive_thread.start()
-# write_thread = threading.Thread(target=write)                  
-# write_thread.start()
-from socketIO_client import SocketIO, LoggingNamespace
+@sio.event
+def connect():
+    print('connection established')
+    sio.emit('hello')
 
-# def on_bbb_response(*args):
-#     print('on_bbb_response', args)
+@sio.on('right')
+def turn_right():
+    print('right')
 
-def on_connect(response):
-    print(response)
+@sio.on('left')
+def turn_left():
+    print('left')
 
-with SocketIO('localhost', 8000, LoggingNamespace) as socketIO:
-    socketIO.emit('connect')
-    socketIO.on('connect', on_connect)
+@sio.on('up')
+def turn_up():
+    print('up')
+
+@sio.on('down')
+def turn_down():
+    print('down')
+
+@sio.on('states')
+def states():
     while True:
-        socketIO.emit('Height', {'height': '15'})
-    socketIO.wait_for_callbacks(seconds=0.1)
+        sio.emit('toweb',{'height': 50})
+        time.sleep(0.5)
+
+@sio.event
+def disconnect():
+    print('disconnected from server')
+
+sio.connect('http://localhost:8000')
+sio.wait()
