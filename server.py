@@ -12,21 +12,10 @@ def welcome():
 	print('Drone connected!')
 	socketio.emit('states')
 
-@socketio.on('right')
-def turn_right():
-	socketio.emit('right')
-
-@socketio.on('up')
-def turn_up():
-	socketio.emit('up')
-
-@socketio.on('left')
-def turn_left():
-	socketio.emit('left') 
-
-@socketio.on('down')
-def turn_down():
-	socketio.emit('down')
+@socketio.on('states')
+def turn_right(*states):
+	socketio.emit('todrone',states)
+	#print(states)
 
 @socketio.on('toweb')
 def give(*args):
@@ -34,4 +23,4 @@ def give(*args):
 
 if __name__ == '__main__':
 	print('Started')
-	socketio.run(app, port=8000)
+	socketio.run(app, port=5000)
