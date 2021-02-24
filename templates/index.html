@@ -1,14 +1,14 @@
 
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script> 
 <script type="text/javascript" charset="utf-8">
-    var socket = io();
+  var socket = io();
 
-    socket.on('toweb', function(args) {
-      document.getElementById("height").innerHTML = "Height:"+args.height;
+  socket.on('toweb', function(args) {
+    document.getElementById("height").innerHTML = "Height:"+args.height;
 
-    });
+  });
 
 
 </script>
@@ -18,22 +18,22 @@
 <style type="text/css">
 
 
-.contentText {
+  .contentText {
     padding: 10px;
     font-size: 20px;
     text-shadow: 1px 1px 1px #00ff00, 0px 0px 0px #000000;
-}
+  }
 
-.demo8{
+  .demo8{
     position: relative;
     margin-left: 20px;
     margin-top: 20px;
     width: 400px;
-}
+  }
 
-#demo-frame > div.demo8 { 
+  #demo-frame > div.demo8 { 
     padding: 10px !important;
-};
+  };
 </style>
 
 
@@ -59,82 +59,100 @@
 <head>
   <title>Joystick Controls</title>
   <style>
-  body
-  {
-    font-family: Courier, monospaced;
-    font-size: 16px;
-    font-weight: bold;
-  }
+    body
+    {
+      font-family: Courier, monospaced;
+      font-size: 16px;
+      font-weight: bold;
+      margin-left:25%;
+      margin-right:25%;
+    }
+    .camera{
+      width: 100%;
+      height: 200px;
+      background-color: black;
+      margin: 0;
+    }
+    .klor{
+      display: inline-block;
+    }
   </style>
 </head>
 
 <body>
-<input type="range" orient="vertical" min="0" max="255" value="0" class="slider" id="myRange" />
-<p>Value: <span id="demo"></span></p>
 
-<input type="range" orient="vertical" min="0" max="20" value="0" class="slider1" id="myRange1" />
-<p>Value: <span id="demo1"></span></p>
-<input type="range" orient="vertical" min="0" max="20" value="0" class="slider1" id="myRange2" />
-<p>Value: <span id="demo2"></span></p>
-
-
-<span id='height'>Height:0</span>
-
-<hr>
-<div style="border: 1px solid red; width: 128px; position: absolute; left:50%; top:150px;">
-  <img src="static/joystick-base.png"/>
-  <div id="stick1" style="position: absolute; left:32px; top:32px;">
-  <img src="static/joystick-red.png"/>    
+  <div class='klor'>
+    <input type="range" orient="vertical" min="0" max="20" value="0" class="slider1" id="myRange1" />
+    <p>X_config: <span id="demo1"></span></p>
   </div>
-</div>
+  <div class='klor'>
+    <input type="range" orient="vertical" min="0" max="20" value="0" class="slider1" id="myRange2" />
+    <p>Y_config: <span id="demo2"></span></p>
+  </div>
+  <div class="camera"></div>
+  <div class='klor'>
+    <input type="range" orient="vertical" min="0" max="255" value="0" class="slider" id="myRange" />
+    <p>Speed: <span id="demo"></span></p>
+  </div>
+  <div class='klor'>
+    <span id='height'>Height:0</span>
+  </div>
+  <div class='klor'>
+    <div style=" width: 128px; position: absolute; left:80%; ">
+      <img src="../static/joystick-base.png"/>
+      <div id="stick1" style="position: absolute; left:32px; top:32px;">
+        <img src="../static/joystick-red.png"/>    
+      </div>
+    </div>
+  </div>
 
 
-<style type="text/css">
-  .slider{
-  -webkit-appearance: slider-vertical;
-}
-  .slider1{
-  -webkit-appearance: slider-horizontal;
-}
-</style>
+  <style type="text/css">
+    .slider{
+      -webkit-appearance: slider-vertical;
+    }
+    .slider1{
+      -webkit-appearance: slider-horizontal;
+    }
+  </style>
 
 
 
 
 
-<script>
+  <script>
 
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
 
-output.innerHTML = slider.value;
+    output.innerHTML = slider.value;
 
-var slider1 = document.getElementById("myRange1");
-var output1 = document.getElementById("demo1");
+    var slider1 = document.getElementById("myRange1");
+    var output1 = document.getElementById("demo1");
 
-output1.innerHTML = slider1.value;
+    output1.innerHTML = slider1.value;
 
-var slider2 = document.getElementById("myRange2");
-var output2 = document.getElementById("demo2");
-output2.innerHTML = slider2.value;
+    var slider2 = document.getElementById("myRange2");
+    var output2 = document.getElementById("demo2");
+    output2.innerHTML = slider2.value;
 
 
 
-slider.oninput = function() {
-  update()
-  output.innerHTML = this.value;
-}
-slider1.oninput = function() {
-  update()
-  output1.innerHTML = this.value;
-}
-slider2.oninput = function() {
-  update()
-  output2.innerHTML = this.value;
-}
+    slider.oninput = function() {
+      update()
+      output.innerHTML = this.value;
+    }
+    slider1.oninput = function() {
+      update()
+      output1.innerHTML = this.value;
+    }
+    slider2.oninput = function() {
+      update()
+      output2.innerHTML = this.value;
+    }
 
-class JoystickController
-{
+    class JoystickController
+    {
   // stickID: ID of HTML element (representing joystick) that will be dragged
   // maxDistance: maximum amount joystick can move in any direction
   // deadzone: joystick must move at least this amount from origin to register value change
@@ -156,7 +174,7 @@ class JoystickController
 
     function handleDown(event)
     {
-        self.active = true;
+      self.active = true;
 
       // all drag movements are instantaneous
       stick.style.transition = '0s';
@@ -164,25 +182,25 @@ class JoystickController
       // touch event fired before mouse event; prevent redundant mouse event from firing
       event.preventDefault();
 
-        if (event.changedTouches){
+      if (event.changedTouches){
 
-          self.dragStart = { x: event.changedTouches[0].clientX, y: event.changedTouches[0].clientY };
-        }
-        else{
-          self.dragStart = { x: event.clientX, y: event.clientY };
-        }
+        self.dragStart = { x: event.changedTouches[0].clientX, y: event.changedTouches[0].clientY };
+      }
+      else{
+        self.dragStart = { x: event.clientX, y: event.clientY };
+      }
 
       // if this is a touch event, keep track of which one
-        if (event.changedTouches){
+      if (event.changedTouches){
 
-          self.touchId = event.changedTouches[0].identifier;
-        }
-        update()
+        self.touchId = event.changedTouches[0].identifier;
+      }
+      update()
     }
     
     function handleMove(event) 
     {
-        if ( !self.active ) return;
+      if ( !self.active ) return;
 
         // if this is a touch event, make sure it is the right one
         // also handle multiple simultaneous touchmove events
@@ -206,28 +224,28 @@ class JoystickController
         const xDiff = event.clientX - self.dragStart.x;
         const yDiff = event.clientY - self.dragStart.y;
         const angle = Math.atan2(yDiff, xDiff);
-      const distance = Math.min(maxDistance, Math.hypot(xDiff, yDiff));
-      const xPosition = distance * Math.cos(angle);
-      const yPosition = distance * Math.sin(angle);
+        const distance = Math.min(maxDistance, Math.hypot(xDiff, yDiff));
+        const xPosition = distance * Math.cos(angle);
+        const yPosition = distance * Math.sin(angle);
 
       // move stick image to new position
-        stick.style.transform = `translate3d(${xPosition}px, ${yPosition}px, 0px)`;
+      stick.style.transform = `translate3d(${xPosition}px, ${yPosition}px, 0px)`;
 
       // deadzone adjustment
       const distance2 = (distance < deadzone) ? 0 : maxDistance / (maxDistance - deadzone) * (distance - deadzone);
-        const xPosition2 = distance2 * Math.cos(angle);
+      const xPosition2 = distance2 * Math.cos(angle);
       const yPosition2 = distance2 * Math.sin(angle);
-        const xPercent = parseFloat((xPosition2 / maxDistance).toFixed(4));
-        const yPercent = parseFloat((yPosition2 / maxDistance).toFixed(4));
-        
-        self.value = { x: xPercent, y: yPercent };
-        update()
-      }
+      const xPercent = parseFloat((xPosition2 / maxDistance).toFixed(4));
+      const yPercent = parseFloat((yPosition2 / maxDistance).toFixed(4));
+
+      self.value = { x: xPercent, y: yPercent };
+      update()
+    }
 
     function handleUp(event) 
     {
-        
-        if ( !self.active ) return;
+
+      if ( !self.active ) return;
 
         // if this is a touch event, make sure it is the right one
         if (event.changedTouches && self.touchId != event.changedTouches[0].identifier) return;
@@ -241,32 +259,32 @@ class JoystickController
         self.touchId = null;
         self.active = false;
         update()
+      }
+
+      stick.addEventListener('mousedown', handleDown);
+      stick.addEventListener('touchstart', handleDown);
+      document.addEventListener('mousemove', handleMove, {passive: false});
+      document.addEventListener('touchmove', handleMove, {passive: false});
+      document.addEventListener('mouseup', handleUp);
+      document.addEventListener('touchend', handleUp);
+
     }
-
-    stick.addEventListener('mousedown', handleDown);
-    stick.addEventListener('touchstart', handleDown);
-    document.addEventListener('mousemove', handleMove, {passive: false});
-    document.addEventListener('touchmove', handleMove, {passive: false});
-    document.addEventListener('mouseup', handleUp);
-    document.addEventListener('touchend', handleUp);
-
   }
-}
 
-let joystick1 = new JoystickController("stick1", 64, 8);
-function update()
-{ 
-  console.log('change')
-let states={
- x: joystick1.value.x, 
- y: joystick1.value.y,
- z:slider.value,
- X_config:slider1.value,
- Y_config:slider2.value
-}; 
-  socket.emit('states',states);
+  let joystick1 = new JoystickController("stick1", 64, 8);
+  function update()
+  { 
+    // console.log('change')
+    let states={
+     x: joystick1.value.x, 
+     y: joystick1.value.y,
+     z:slider.value,
+     X_config:slider1.value,
+     Y_config:slider2.value
+   }; 
+   socket.emit('states',states);
 
-}
+ }
 
 // function loop()
 // {
@@ -278,36 +296,39 @@ let states={
 
 
 
-$(document).ready(function() {
-
-    // For the manual movement of the Slider Button, we use ui.value to supply value.
-    $("#slider").slider({
-        // This 'value' is the starting value.
-        value: 20,
-        min: 0,
-        max: 100,
-        step: 1,
-        animate: "slow",
-        slide: function(event, ui) {
-
-            // Display the numeric value on the html page.
-            $('#showValue').html('Value: ' + ui.value);
-
-
-        }
-    });
-
+document.onkeydown = function (event) {
+  if (event.keyCode==38) {
     
-    // For page load, this is launched just once for initial settings.
-    // Populate the value with preset text followed by the sliders current value (setable in slider via value).
-    $('#showValue').html('Value: ' + $('#slider').slider('value') );
-
+    document.getElementById("myRange").value++;
+    output.innerHTML = slider.value;
+    update()
+  }
+  if (event.keyCode==40) {
     
-});
+    document.getElementById("myRange").value--;
+    output.innerHTML = slider.value;
+    update()
+  }
+    if (event.keyCode==87) {
+joystick1.value.y=1
+update()
+  }
+    if (event.keyCode==83) {
+      joystick1.value.y=-1
+    update()
 
+  }
+      if (event.keyCode==65) {
+        joystick1.value.x=1
+    update()
 
+  }
+      if (event.keyCode==68) {
+        joystick1.value.x=-1
+    update()
 
-// For the Set clickable values, we use variable theValue to supply value.
+  }
+}
 function setValue(theValue) {
 
     // Animate the Button to the value clicked on.
@@ -317,7 +338,7 @@ function setValue(theValue) {
     $('#showValue').html('Height: ' + theValue);
 
 
-}
+  }
 </script>
 
 </body>
