@@ -12,18 +12,18 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html')
-
+host_name  = socket.gethostname()
+HOST=socket.gethostbyname(host_name)
+PORT=1294
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+print('Socket created')
+s.bind((HOST,PORT))
+print('Socket bind complete')
+s.listen(10)
+print('Socket now listening')
 def gen():
     """Video streaming generator function."""
     while True:
-        HOST='192.168.56.1'
-        PORT=1294
-        s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-        print('Socket created')
-        s.bind((HOST,PORT))
-        print('Socket bind complete')
-        s.listen(10)
-        print('Socket now listening')
         conn,addr=s.accept()
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
         out = cv2.VideoWriter('output.avi',fourcc, 20.0, (640,480))
