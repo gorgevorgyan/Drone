@@ -328,6 +328,27 @@ update()
     update()
 
   }
+}document.onkeyup = function (event) {
+
+    if (event.keyCode==87) {
+joystick1.value.y=0
+update()
+  }
+    if (event.keyCode==83) {
+      joystick1.value.y=0
+    update()
+
+  }
+      if (event.keyCode==65) {
+        joystick1.value.x=0
+    update()
+
+  }
+      if (event.keyCode==68) {
+        joystick1.value.x=0
+    update()
+
+  }
 }
 function setValue(theValue) {
 
