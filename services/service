@@ -1,0 +1,14 @@
+[Unit]
+Description=Gunicorn instance to serve drone
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/drone
+Environment="PATH=/home/ubuntu/drone/drone/bin"
+#ExecStart=/home/ubuntu/drone/drone/bin/gunicorn --workers 3 --bind unix:drone.sock -m 007 wsgi:app
+ExecStart=/home/ubuntu/drone/drone/bin/gunicorn webserver:app --worker-class eventlet -w 1 --bind 0.0.0.0:5901 --reload
+
+[Install]
+WantedBy=multi-user.target
