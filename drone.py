@@ -1,7 +1,6 @@
 import socketio
 import time
 import random
-
 sio = socketio.Client()
 
 @sio.event
@@ -24,5 +23,6 @@ def states():
 def disconnect():
     print('disconnected from server')
 
-sio.connect('http://cuadro.ml:5901')
+sio.connect('https://cuadro.ml')
 sio.wait()
+
