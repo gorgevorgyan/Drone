@@ -24,5 +24,5 @@ def states():
 def disconnect():
     print('disconnected from server')
 
-sio.connect('localhost:5901')
+sio.connect('http://cuadro.ml:5901')
 sio.wait()
