@@ -1,3 +1,10 @@
+{% block content %}
+{% if session['logged_in'] %}
+  {% if data %}
+<p>ooops</p>
+  {% else %}
+
+
 <!DOCTYPE html>
 <html>
 
@@ -12,6 +19,7 @@
 </head>
 
 <body>
+  <a href="/logout">Logout</a> <br> <br>
   <h2>I believe I can fly!</h2>
   <div class='klor'>
     <input type="range" orient="vertical" min="0" max="20" value="0" class="slider1" id="myRange1" />
@@ -41,7 +49,16 @@
 </body>
 
 </html>
+{% endif %}
 
+{% else %}
+<script type="text/javascript">
+  document.location.href = '/login';
+
+</script>
+
+{% endif %}
+{% endblock %}
 
 
 
