@@ -1,0 +1,76 @@
+{% block content %}
+{% if session['logged_in'] %}
+  {% if data %}
+<p>ooops</p>
+  {% else %}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Cuadro Drone!</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script> 
+  <script type="text/javascript" src="/static/script.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+</script>
+
+
+
+  <a href="/logout">Logout</a> <br> <br>
+  <h2>I believe I can fly!</h2>
+    
+  <div class='klor'>
+    <input type="range" orient="vertical" min="0" max="20" value="0" class="slider1" id="myRange1" />
+    <p>X_config: <span id="demo1"></span></p>
+  </div>
+  <div class='klor'>
+    <input type="range" orient="vertical" min="0" max="20" value="0" class="slider1" id="myRange2" />
+    <p>Y_config: <span id="demo2"></span></p>
+  </div>
+  <img src="http://192.168.56.1:5900/video_feed"> 
+  <div class='klor'>
+    <input type="range" orient="vertical" min="0" max="255" value="0" class="slider1" id="myRange" />
+    <p>Speed: <span id="demo"></span></p>
+  </div>
+  <div class='klor'>
+    <span id='height'>Height:0</span>
+  </div>
+  <div class='klor'>
+    <div style=" width: 128px; position: absolute; left:80%; ">
+      <img src="../static/joystick-base.png"/>
+      <div id="stick1" style="position: absolute; left:32px; top:32px;">
+        <img src="../static/joystick-red.png"/>    
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src='/static/main.js'></script>
+</body>
+
+</html>
+{% endif %}
+
+{% else %}
+<script type="text/javascript">
+  document.location.href = '/login';
+
+</script>
+
+{% endif %}
+{% endblock %}
+
+
+
+
+
+
+
+
