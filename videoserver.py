@@ -13,7 +13,7 @@ CORS(app, resources={r"/api/*": {"origins": "http://localhost:5901/"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return "Sorry You can not fly"
 
 host_name  = socket.gethostname()
 HOST=socket.gethostbyname(host_name)
