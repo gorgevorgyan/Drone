@@ -47,4 +47,4 @@ def give(*args):
 if __name__ == '__main__':
 	print('Started')
 	app.secret_key = "123"
-	socketio.run(app, port=5901)
+	socketio.run(app, port=8080)
