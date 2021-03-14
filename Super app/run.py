@@ -30,17 +30,17 @@ finally:
 project_name_env=project_name+'env'
 project_service_name=project_name+'.service'
 time.sleep(2)
-try:
-	print('Reading requipments.txt')
-	fr = open("requipments.txt", "r")
-	requipments=fr.read()
-except:
-	print('Failed to read requipments file')
-	sys.exit()
-finally:
-	print('Successed!')
-	fr.close()
-time.sleep(2)
+# try:
+# 	print('Reading requipments.txt')
+# 	fr = open("requipments.txt", "r")
+# 	requipments=fr.read()
+# except:
+# 	print('Failed to read requipments file')
+# 	sys.exit()
+# finally:
+# 	print('Successed!')
+# 	fr.close()
+# time.sleep(2)
 try:
 	print('Updating system')
 	os.system('sudo apt update')
@@ -106,16 +106,16 @@ except:
 finally:
 	print('Successed!')
 time.sleep(2)
-try:
-	print('Creating requipments file in environment')
-	f = open("requipments.txt", requipments)
-except:
-	print('Failed to Create requipments file in environment')
-	sys.exit()
-finally:
-	print('Successed!')
-	f.close()
-time.sleep(2)
+# try:
+# 	print('Creating requipments file in environment')
+# 	f = open("requipments.txt", requipments)
+# except:
+# 	print('Failed to Create requipments file in environment')
+# 	sys.exit()
+# finally:
+# 	print('Successed!')
+# 	f.close()
+# time.sleep(2)
 try:
 	print('Installing wheel')
 	os.system('pip install wheel')
