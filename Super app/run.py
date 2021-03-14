@@ -144,6 +144,14 @@ finally:
 	print('Successed!')
 time.sleep(2)
 try:
+	print('Cloning project folder from git')
+	os.system('git clone'+git_link+' .')
+except:
+	print('Failed to clone project folder from git')
+	sys.exit()
+finally:
+	print('Successed!')
+try:
 	print('Installing requipments')
 	os.system('pip install requipments.txt')
 except:
@@ -152,14 +160,7 @@ except:
 finally:
 	print('Successed!')
 time.sleep(2)
-try:
-	print('Cloning project folder from git')
-	os.system('git clone'+git_link+' .')
-except:
-	print('Failed to clone project folder from git')
-	sys.exit()
-finally:
-	print('Successed!')
+
 time.sleep(2)
 try:
 	print('Allowing port '+Port)
