@@ -2,7 +2,7 @@
 	"start_file_name":"fasttest",
 	"flask_name":"app",
 	"project_name":"test",
-	"Port":"9999",
+	"Port":"7777",
 	"git_link":"https://github.com/gorgevorgyan/fast"
 
 }
