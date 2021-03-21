@@ -10,12 +10,14 @@
 
 <head>
   <title>Cuadro Drone!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
   <link rel="stylesheet" type="text/css" href="/static/style.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script> 
   <script type="text/javascript" src="/static/script.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 
 <body>
@@ -29,11 +31,11 @@
   <h2>I believe I can fly!</h2>
     
   <div class='klor'>
-    <input type="range" orient="vertical" min="0" max="20" value="0" class="slider1" id="myRange1" />
+    <input type="range" orient="vertical" min="-20" max="20" value="0.1" class="slider1" id="myRange1" />
     <p>X_config: <span id="demo1"></span></p>
   </div>
   <div class='klor'>
-    <input type="range" orient="vertical" min="0" max="20" value="0" class="slider1" id="myRange2" />
+    <input type="range" orient="vertical" min="-20" max="20" value="0.1" class="slider1" id="myRange2" />
     <p>Y_config: <span id="demo2"></span></p>
   </div>
   <img src="http://192.168.56.1:5900/video_feed"> 
@@ -42,7 +44,30 @@
     <p>Speed: <span id="demo"></span></p>
   </div>
   <div class='klor'>
-    <span id='height'>Height:0</span>
+    <table>
+
+  <tr>
+    <td><i class="fas fa-tachometer-alt" aria-hidden="true"></i> Speed</td>
+    <td id='speed'></td>
+  </tr>
+  <tr>
+    <td><i class='fas fa-arrows-alt-v'></i> Height</td>
+    <td id='height'></td>
+  </tr>
+  <tr>
+    <td><i class="fa fa-battery-full" aria-hidden="true"></i> Battery</td>
+    <td id='battery'></td>
+  </tr>
+  <tr>
+    <td><i class="fas fa-fast-forward"></i> Acceleration</td>
+    <td id='acceleration'></td>
+  </tr>
+  <tr>
+    <td><i class="fas fa-arrows-alt" aria-hidden="true"></i> Gyroscope</td>
+    <td id='gyroscope'></td>
+  </tr>
+  
+</table>
   </div>
   <div class='klor'>
     <div style=" width: 128px; position: absolute; left:80%; ">
