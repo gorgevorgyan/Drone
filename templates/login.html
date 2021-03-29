@@ -5,7 +5,17 @@
 
 </script>
 {% else %}
-<head>  <title>Cuadro Drone!</title>
+<head>  
+    
+<script type="text/javascript">
+  
+
+if (location.protocol !== 'https:') {
+    location.replace(`https:${location.href.substring(location.protocol.length)}`);
+}
+  
+</script>
+    <title>Cuadro Drone!</title>
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
 <meta charset="utf-8">
@@ -20,6 +30,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
       <link rel="stylesheet" type="text/css" href="/static/login.css">
     </head>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-2"></div>

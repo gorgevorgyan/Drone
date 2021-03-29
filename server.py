@@ -6,7 +6,9 @@ import json
 lx=0
 ly=0
 app = Flask(__name__)
+app.secret_key = "123"
 socketio = SocketIO(app)
+
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -23,7 +25,7 @@ def login():
         name = request.form['username']
         passw = request.form['password']
         try:
-            if name=='admin' and passw=='admin1234':
+            if name=='pilot' and passw=='pilot1234':
                 session['logged_in'] = True
                 return redirect(url_for('home'))
             else:
@@ -48,6 +50,8 @@ def turn_right(*states):
 
 @socketio.on('toweb')
 def give(*args):
+    global lx
+    global ly
     lx=args[0]['lx']
     ly=args[0]['ly']
     #print(lx)
@@ -58,5 +62,4 @@ def location():
     return jsonify({"geometry": {"type": "Point", "coordinates": [lx, ly]}, "type": "Feature", "properties": {}})
 if __name__ == '__main__':
 	print('Started')
-	app.secret_key = "123"
-	socketio.run(app, port=8080)
+	socketio.run(app, port=9999)
