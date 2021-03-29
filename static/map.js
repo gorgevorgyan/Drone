@@ -18,7 +18,7 @@ var geojsonMarkerOptions = {
 };
 
 var realtime = L.realtime({
-    url: 'http://localhost:8080/location',
+    url: 'https://airboss.cf/location',
     crossOrigin: true,
     type: 'json'
 }, {
