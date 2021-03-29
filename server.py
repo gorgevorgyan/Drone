@@ -1,8 +1,14 @@
 from flask import Flask, url_for, render_template, request, redirect, session
 from flask_socketio import SocketIO, emit
-
+from flask import jsonify
+import random
+import json
+lx=0
+ly=0
 app = Flask(__name__)
 socketio = SocketIO(app)
+
+
 @app.route("/", methods=['GET', 'POST'])
 def home():
     return render_template('index.html')
@@ -42,8 +48,14 @@ def turn_right(*states):
 
 @socketio.on('toweb')
 def give(*args):
-	socketio.emit('toweb',args)
-
+    lx=args[0]['lx']
+    ly=args[0]['ly']
+    #print(lx)
+    socketio.emit('toweb',args)
+@app.route("/location", methods=['GET', 'POST'])
+def location():
+    print(lx)
+    return jsonify({"geometry": {"type": "Point", "coordinates": [lx, ly]}, "type": "Feature", "properties": {}})
 if __name__ == '__main__':
 	print('Started')
 	app.secret_key = "123"
