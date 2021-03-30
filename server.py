@@ -43,6 +43,18 @@ def welcome():
 	print('Drone connected!')
 	socketio.emit('states')
 
+@socketio.on('fullRight')
+def fullRight():
+    socketio.emit('fullRight')
+
+@socketio.on('fullLeft')
+def fullLeft():
+    socketio.emit('fullLeft')
+
+@socketio.on('stopRotate')
+def stopRotate():
+    socketio.emit('stopRotate')
+
 @socketio.on('states')
 def turn_right(*states):
 	socketio.emit('todrone',states)

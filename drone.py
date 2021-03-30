@@ -11,6 +11,18 @@ def connect():
 def dronid(*args):
     print(args)
 
+@sio.on('fullRight')
+def fullRight():
+    print('fullRight')
+
+@sio.on('fullLeft')
+def fullLeft():
+    print('fullLeft')
+
+@sio.on('stopRotate')
+def stopRotate():
+    print('stopRotate')
+
 @sio.on('states')
 def states():
     while True:
