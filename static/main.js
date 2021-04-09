@@ -12,12 +12,24 @@
   var output2 = document.getElementById("demo2");
   output2.innerHTML = slider2.value;
 
+  // var sliderm1 = document.getElementById("m1");
+  // var outputm1 = document.getElementById("demom1");
+
+  // outputm1.value = sliderm1.value;
 
 
   slider.oninput = function() {
     update()
     output.innerHTML = this.value;
   }
+  // sliderm1.oninput = function() {
+  //   update()
+  //   outputm1.value = this.value;
+  // }
+  // outputm1.oninput = function() {
+  //   update()
+  //   sliderm1.value = this.value;
+  // }
   slider1.oninput = function() {
     update()
     output1.innerHTML = this.value;
@@ -239,7 +251,12 @@ document.onkeydown = function (event) {
 }
 }
 document.onkeyup = function (event) {
-
+  if (event.keyCode==32) {
+    document.getElementById("myRange").value=0
+    update() 
+    socket.emit('home');
+    document.getElementById("demo").innerHTML='0'
+  }
   if (event.keyCode==87) {
     joystick1.value.y=0
     update()
@@ -303,3 +320,31 @@ function setValue(theValue) {
 
 }
 
+const checkbox = document.getElementById('customSwitch1')
+
+checkbox.addEventListener('change', (event) => {
+  if (event.currentTarget.checked) {
+    $('#iu').modal();
+  } 
+})
+// $('input[type="checkbox"]').on('change', function(e){
+//    if(e.target.checked){
+//      $('#myModal').modal();
+//    }
+// });
+
+function config(){
+
+  let config={
+   m1:document.getElementById("demom1").value, 
+   m2:document.getElementById("demom2").value,
+   m3:document.getElementById("demom3").value,
+   m4:document.getElementById("demom4").value,
+
+ }; 
+ socket.emit('config',config);
+ $('#iu').modal('toggle')
+
+
+
+}

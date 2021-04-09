@@ -11,9 +11,17 @@ def connect():
 def dronid(*args):
     print(args)
 
+@sio.on('config')
+def dronid(*config):
+    print(config)
+
 @sio.on('fullRight')
 def fullRight():
-    print('fullRight')
+    print('fullRight') 
+
+@sio.on('home')
+def home():
+    print('home')
 
 @sio.on('fullLeft')
 def fullLeft():

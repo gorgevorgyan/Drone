@@ -55,10 +55,17 @@ def fullLeft():
 def stopRotate():
     socketio.emit('stopRotate')
 
+@socketio.on('home')
+def home():
+    socketio.emit('home')
+
 @socketio.on('states')
 def turn_right(*states):
 	socketio.emit('todrone',states)
-	#print(states)
+
+@socketio.on('config')
+def conf(*config):
+    socketio.emit('config',config)
 
 @socketio.on('toweb')
 def give(*args):

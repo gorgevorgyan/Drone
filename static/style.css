@@ -3,8 +3,10 @@ body
 font-family: Courier, monospaced;
 font-size: 16px;
 font-weight: bold;
+padding: 10px;
 
 }
+
 .row{
   margin-bottom: 10px;
 }
@@ -34,7 +36,9 @@ font-weight: bold;
   margin-top: 20px;
   width: 400px;
 }
-
+.po{
+  width: 100px;
+}
 #demo-frame > div.demo8 { 
   padding: 10px !important;
 };
