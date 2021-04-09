@@ -1,3 +1,7 @@
+  var green='#030fd8'
+
+
+
   var slider = document.getElementById("myRange");
   var output = document.getElementById("demo");
 
@@ -206,16 +210,16 @@ document.onkeydown = function (event) {
     update()
     document.getElementById("t3").style.fill = "red";
     document.getElementById("t4").style.fill = "red";
-    document.getElementById("t1").style.fill = "#52fc03";
-    document.getElementById("t2").style.fill = "#52fc03";
+    document.getElementById("t1").style.fill = green;
+    document.getElementById("t2").style.fill = green;
   }
   if (event.keyCode==83) {
     joystick1.value.y=-1
     update()
     document.getElementById("t1").style.fill = "red";
     document.getElementById("t2").style.fill = "red";
-    document.getElementById("t3").style.fill = "#52fc03";
-    document.getElementById("t4").style.fill = "#52fc03";
+    document.getElementById("t3").style.fill = green;
+    document.getElementById("t4").style.fill = green;
 
 
   }
@@ -224,8 +228,8 @@ document.onkeydown = function (event) {
     update()
     document.getElementById("t2").style.fill = "red";
     document.getElementById("t4").style.fill = "red";
-    document.getElementById("t1").style.fill = "#52fc03";
-    document.getElementById("t3").style.fill = "#52fc03";
+    document.getElementById("t1").style.fill = green;
+    document.getElementById("t3").style.fill = green;
 
   }
   if (event.keyCode==68) {
@@ -233,24 +237,24 @@ document.onkeydown = function (event) {
     update()
     document.getElementById("t1").style.fill = "red";
     document.getElementById("t3").style.fill = "red";
-    document.getElementById("t4").style.fill = "#52fc03";
-    document.getElementById("t2").style.fill = "#52fc03";
+    document.getElementById("t4").style.fill = green;
+    document.getElementById("t2").style.fill = green;
 
   }
     if (event.keyCode==81) {
     socket.emit('fullLeft');
     document.getElementById("t2").style.fill = "red";
     document.getElementById("t3").style.fill = "red";
-    document.getElementById("t1").style.fill = "#52fc03";
-    document.getElementById("t4").style.fill = "#52fc03";
+    document.getElementById("t1").style.fill = green;
+    document.getElementById("t4").style.fill = green;
 
   } 
   if (event.keyCode==69) {
     socket.emit('fullRight');
     document.getElementById("t1").style.fill = "red";
     document.getElementById("t4").style.fill = "red";
-    document.getElementById("t2").style.fill = "#52fc03";
-    document.getElementById("t3").style.fill = "#52fc03";
+    document.getElementById("t2").style.fill = green;
+    document.getElementById("t3").style.fill = green;
 
 }
 }
@@ -264,52 +268,52 @@ document.onkeyup = function (event) {
   if (event.keyCode==87) {
     joystick1.value.y=0
     update()
-    document.getElementById("t1").style.fill = "white";
-    document.getElementById("t3").style.fill = "white";
-    document.getElementById("t4").style.fill = "white";
-    document.getElementById("t2").style.fill = "white";
+    document.getElementById("t1").style.fill = "black";
+    document.getElementById("t3").style.fill = "black";
+    document.getElementById("t4").style.fill = "black";
+    document.getElementById("t2").style.fill = "black";
   }
   if (event.keyCode==83) {
     joystick1.value.y=0
     update()
-    document.getElementById("t1").style.fill = "white";
-    document.getElementById("t3").style.fill = "white";
-    document.getElementById("t4").style.fill = "white";
-    document.getElementById("t2").style.fill = "white";
+    document.getElementById("t1").style.fill = "black";
+    document.getElementById("t4").style.fill = "black";
+    document.getElementById("t2").style.fill = "black";
+    document.getElementById("t3").style.fill = "black";
 
   }
   if (event.keyCode==65) {
     joystick1.value.x=0
     update()
-    document.getElementById("t1").style.fill = "white";
-    document.getElementById("t3").style.fill = "white";
-    document.getElementById("t4").style.fill = "white";
-    document.getElementById("t2").style.fill = "white";
+    document.getElementById("t1").style.fill = "black";
+    document.getElementById("t3").style.fill = "black";
+    document.getElementById("t4").style.fill = "black";
+    document.getElementById("t2").style.fill = "black";
 
   }
   if (event.keyCode==68) {
     joystick1.value.x=0
     update()
-    document.getElementById("t1").style.fill = "white";
-    document.getElementById("t3").style.fill = "white";
-    document.getElementById("t4").style.fill = "white";
-    document.getElementById("t2").style.fill = "white";
+    document.getElementById("t1").style.fill = "black";
+    document.getElementById("t3").style.fill = "black";
+    document.getElementById("t4").style.fill = "black";
+    document.getElementById("t2").style.fill = "black";
 
   } 
   if (event.keyCode==81) {
     socket.emit('stopRotate');
-    document.getElementById("t1").style.fill = "white";
-    document.getElementById("t3").style.fill = "white";
-    document.getElementById("t4").style.fill = "white";
-    document.getElementById("t2").style.fill = "white";
+    document.getElementById("t1").style.fill = "black";
+    document.getElementById("t3").style.fill = "black";
+    document.getElementById("t4").style.fill = "black";
+    document.getElementById("t2").style.fill = "black";
 
   } 
   if (event.keyCode==69) {
     socket.emit('stopRotate');
-    document.getElementById("t1").style.fill = "white";
-    document.getElementById("t3").style.fill = "white";
-    document.getElementById("t4").style.fill = "white";
-    document.getElementById("t2").style.fill = "white";
+    document.getElementById("t1").style.fill = "black";
+    document.getElementById("t3").style.fill = "black";
+    document.getElementById("t4").style.fill = "black";
+    document.getElementById("t2").style.fill = "black";
 
   }
 }

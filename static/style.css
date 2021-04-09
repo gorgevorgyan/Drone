@@ -61,7 +61,7 @@ td, th {
 }
 
 #mini {
-  background-color: black;
+  background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -71,7 +71,7 @@ svg {
   display: block;
   height: 200px;
   width: 200px;
-  fill: white;
+  fill: black;
   width: 100%; 
 }
 
