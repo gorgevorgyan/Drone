@@ -164,6 +164,10 @@ function update()
 { 
   // console.log('change')
   let states={
+   m1:document.getElementById("demom1").value, 
+   m2:document.getElementById("demom2").value,
+   m3:document.getElementById("demom3").value,
+   m4:document.getElementById("demom4").value,
    x: joystick1.value.x, 
    y: joystick1.value.y,
    z:slider.value,
@@ -334,15 +338,9 @@ checkbox.addEventListener('change', (event) => {
 // });
 
 function config(){
+update()
 
-  let config={
-   m1:document.getElementById("demom1").value, 
-   m2:document.getElementById("demom2").value,
-   m3:document.getElementById("demom3").value,
-   m4:document.getElementById("demom4").value,
-
- }; 
- socket.emit('config',config);
+ // socket.emit('config',config);
  $('#iu').modal('toggle')
 
 
