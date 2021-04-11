@@ -377,10 +377,8 @@ function setValue(theValue) {
 
 const checkbox = document.getElementById('customSwitch1')
 
-checkbox.addEventListener('change', (event) => {
-  if (event.currentTarget.checked) {
+checkbox.addEventListener('click', (event) => {
     $('#iu').modal();
-  } 
 })
 // $('input[type="checkbox"]').on('change', function(e){
 //    if(e.target.checked){
