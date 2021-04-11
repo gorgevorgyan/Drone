@@ -14,7 +14,29 @@
 
   var slider2 = document.getElementById("myRange2");
   var output2 = document.getElementById("demo2");
-  output2.innerHTML = slider2.value;
+  output2.innerHTML = slider2.value; 
+
+
+
+  var demom1 = document.getElementById("demom1");
+  var m1 = document.getElementById("m1");
+  m1.innerHTML = demom1.value;
+
+  var demom2 = document.getElementById("demom2");
+  var m2 = document.getElementById("m2");
+
+  m2.innerHTML = demom2.value;
+
+  var demom3 = document.getElementById("demom3");
+  var m3 = document.getElementById("m3");
+
+  m3.innerHTML = demom3.value;
+
+  var demom4 = document.getElementById("demom4");
+  var m4 = document.getElementById("m4");
+
+  m4.innerHTML = demom4.value;
+
 
   // var sliderm1 = document.getElementById("m1");
   // var outputm1 = document.getElementById("demom1");
@@ -26,14 +48,19 @@
     update()
     output.innerHTML = this.value;
   }
-  // sliderm1.oninput = function() {
-  //   update()
-  //   outputm1.value = this.value;
-  // }
-  // outputm1.oninput = function() {
-  //   update()
-  //   sliderm1.value = this.value;
-  // }
+  demom1.oninput = function() {
+    m1.innerHTML = this.value;
+  }
+  demom2.oninput = function() {
+    m2.innerHTML = this.value;
+  }  
+  demom3.oninput = function() {
+    m3.innerHTML = this.value;
+  }
+  demom4.oninput = function() {
+    m4.innerHTML = this.value;
+  }
+
   slider1.oninput = function() {
     update()
     output1.innerHTML = this.value;
