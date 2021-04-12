@@ -49,8 +49,9 @@
     output.value = this.value;
   } 
   output.oninput = function() {
-    update()
     slider.value = this.value;
+    update()
+
   }
   demom1.oninput = function() {
     update()
