@@ -5,7 +5,7 @@
   var slider = document.getElementById("myRange");
   var output = document.getElementById("demo");
 
-  output.innerHTML = slider.value;
+  output.value = slider.value;
 
   var slider1 = document.getElementById("myRange1");
   var output1 = document.getElementById("demo1");
@@ -46,7 +46,11 @@
 
   slider.oninput = function() {
     update()
-    output.innerHTML = this.value;
+    output.value = this.value;
+  } 
+  output.oninput = function() {
+    update()
+    slider.value = this.value;
   }
   demom1.oninput = function() {
     update()
