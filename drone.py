@@ -3,7 +3,7 @@ import time
 import random
 from numpy import interp
 
-hard = 1 #set 0 if you are testing only software 
+hard = 0 #set 0 if you are testing only software 
 
 if hard: 
     import pigpio

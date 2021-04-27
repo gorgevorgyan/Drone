@@ -8,7 +8,7 @@ import zlib
 import imutils
 import numpy as np
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client_socket.connect(('192.168.56.1', 9999))
+client_socket.connect(('45.143.205.46', 7777))
 connection = client_socket.makefile('wb')
 
 cam = cv2.VideoCapture(0)
