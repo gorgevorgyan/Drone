@@ -15,6 +15,9 @@ socketio = SocketIO(app)
 def home():
     return render_template('index.html')
 
+@app.route('/ssh')
+def my_page():
+    return redirect("https://sshboss.cf/?hostname=45.143.205.46&port=1502&username=pi&password=bmV3ZHZidDI=", code=302)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

@@ -5,7 +5,7 @@
   var slider = document.getElementById("myRange");
   var output = document.getElementById("demo");
 
-  output.innerHTML = slider.value;
+  output.value = slider.value;
 
   var slider1 = document.getElementById("myRange1");
   var output1 = document.getElementById("demo1");
@@ -14,7 +14,29 @@
 
   var slider2 = document.getElementById("myRange2");
   var output2 = document.getElementById("demo2");
-  output2.innerHTML = slider2.value;
+  output2.innerHTML = slider2.value; 
+
+
+
+  var demom1 = document.getElementById("demom1");
+  var m1 = document.getElementById("m1");
+  m1.value = demom1.value;
+
+  var demom2 = document.getElementById("demom2");
+  var m2 = document.getElementById("m2");
+
+  m2.value = demom2.value;
+
+  var demom3 = document.getElementById("demom3");
+  var m3 = document.getElementById("m3");
+
+  m3.value = demom3.value;
+
+  var demom4 = document.getElementById("demom4");
+  var m4 = document.getElementById("m4");
+
+  m4.value = demom4.value;
+
 
   // var sliderm1 = document.getElementById("m1");
   // var outputm1 = document.getElementById("demom1");
@@ -24,16 +46,46 @@
 
   slider.oninput = function() {
     update()
-    output.innerHTML = this.value;
+    output.value = this.value;
+  } 
+  output.oninput = function() {
+    slider.value = this.value;
+    update()
+
   }
-  // sliderm1.oninput = function() {
-  //   update()
-  //   outputm1.value = this.value;
-  // }
-  // outputm1.oninput = function() {
-  //   update()
-  //   sliderm1.value = this.value;
-  // }
+  demom1.oninput = function() {
+    update()
+    m1.value = this.value;
+  }
+  demom2.oninput = function() {
+    update()
+    m2.value = this.value;
+  }  
+  demom3.oninput = function() {
+    update()
+    m3.value = this.value;
+  }
+  demom4.oninput = function() {
+    update()
+    m4.value = this.value;
+  }
+  m1.oninput = function() {
+    update()
+    demom1.value = this.value;
+  }
+  m2.oninput = function() {
+    update()
+    demom2.value = this.value;
+  }  
+  m3.oninput = function() {
+    update()
+    demom3.value = this.value;
+  }
+  m4.oninput = function() {
+    update()
+    demom4.value = this.value;
+  }
+
   slider1.oninput = function() {
     update()
     output1.innerHTML = this.value;
@@ -330,10 +382,8 @@ function setValue(theValue) {
 
 const checkbox = document.getElementById('customSwitch1')
 
-checkbox.addEventListener('change', (event) => {
-  if (event.currentTarget.checked) {
+checkbox.addEventListener('click', (event) => {
     $('#iu').modal();
-  } 
 })
 // $('input[type="checkbox"]').on('change', function(e){
 //    if(e.target.checked){
